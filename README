@@ -1,37 +1,55 @@
-This is taken from the head of the project
+This is the code and image files for an arduino based aquarium controller for a freshwater planted tank.
 
-// iAqua Aquarium Controller w/ iPhone-like Interface
-// Written by Dan Cunningham, aka AnotherHobby @ plantedtank.net
-// Much code was swiped, modified, and integrated or otherwise inspired from other public works
-// All code is public domain, feel free to use, abuse, edit, and share
-// Written for Arduino Mega 2560
+The project is covered in depth on this forum thread:
 
-// CURRENT VERSION 1.0.4
-// - the smart startup routine has been reworked and fixed by robsworld78 at The Planted Tank forums!
-// - added a first run routine that will zero out all EEPROM data that is needed by iAqua
-// - see the warning immediately below:
-// - ////////////////////////////////////////////////////////////////////////////////////////////
-// - // WARNING!! IF YOU HAVE CONFIGURED iAqua BEFORE v 1.0.4 AND DO NOT WANT TO LOOSE YOUR DATA
-// - // YOU MUST COMMENT OUT THE FISRT LINE OF THE startup() ROUTINE THAT CALLS firstRunSetup().
-// - // IF YOU DO NOT, IT WILL ZERO ALL OF YOUR SETTINGS!!!!
-// - /////////////////////////////////////////////////////////////////////////////////////////////
-//
-// VERSION 1.0.3
-// - fixed smartstartup routine bugs
-// - fixed dosing display when resevoir goes negative due to forgettig to hit fill
-// - added robsworld78 at The Planted Tank's PWM smart startup lighting code
-// - fixed issue when temp turned red, and then turned feeding time red
-//
-// VERSION:  1.0.2
-// - more accurate math for how doses were calcualted on home screen
-// - updated power schedules to update home screen immediately
-// - day name was off using new RTC and Time library
-//
-// VERSION:  1.0.1
-// - created smart startup routine
-// - fixed math bug with dosing pump speed saving to eeprom
-// - changed PWM pins for dosing pumps to make room for RGBW PWM pins
-// - changed from previous RTC library to RTClib.h
-//
-// VERSION:  1.0
-// - initial version
+http://www.plantedtank.net/forums/20-diy/677265-iaqua-my-touch-interface-aquarium-controller-arduino.html
+
+Here are the key featuers:
+
+• Colorful iPhone inspired touch screen interface
+• Nearly all settings are accessed and changed in the GUI, not in code
+• All settings saved/retrieved with EEPROM (persistent memory after reboot)
+• All graphics stored on external SD card
+• Scheduling is available in the GUI for power relays, lighting fades, and dosing pumps
+• Automated control of 8 power relays (120v, optically isolated for safety)
+—• Light1, Light2, Filter, Circulation Pump, Heater, CO2, Aux1, and Aux2
+—• All power relays can be toggled on/off in the GUI at any time
+—• 6 of the power relays can be scheduled for daily on and off times (not filter or heat)
+—• One touch Feeding routine that controls power
+——• Sets all power relays to a configured state for a configured amount of time
+——• example: turn off filter, circulation pump, heater, and CO2 for 10 minutes
+——• Returns all power relays to previous state when time has expired
+——• *If CO2 schedule turned off CO2 during feeding, it will not turn back on
+• Automated control of Heater for safety
+—• Configurable high temp to turn off heater power relay
+—• Temp on home screen turns red, and stays red until you touch it to acknowledge you've seen it
+—• Configurable low temp to turn heat back on
+—• Configurable low temp to sound a tone alarm (i.e. heater broke)
+• Automated control of Current Satellite Plus via IR, or any LED lights controllable via PWM (up to 4 channels, RGBW)
+—• Adjust and save 4 lighting modes (High Sun, Mid Sun, Low Sun, Moon)
+—• Automated fading between light modes
+—• Schedule start time and duration of each of the following ramps
+——• Moon to Low Sun
+——• Low Sun to Mid Sun
+——• Mid Sun to High Sun
+——• Mid Sun to Low Sun
+——• Low Sun to Moon
+• Automated control of 2 dosing pumps for Macro and Micro liquid fertilizer
+—• Schedule individual days and time for each pump to run
+—• Calibrate/Test pump speed in GUI for each pump
+—• Configurable amount of mL to pump per dose (applies to both pumps)
+—• Configurable volume of fertilizer reservoir 
+—• Fill button to reset volume when you fill so it can tell you how much is left
+• Set date/time directly in GUI• 
+• Auto-dimming display
+—• Display dims to match ambient lighting
+—• Display goes to full bright when touched, returns to dim after a user settable amount of time
+—• Dimming can be disabled and brightness can be manually adjusted in the GUI
+• Home screen displays in real time (updated every 5 sec):
+—• Date/Time
+—• Aquarium water temperature
+—• Number of hours since fish were fed
+—• Current lighting mode
+—• If lighting is actively fading, it shows what mode is transitioning to what, and how much time is left
+—• Remaining fertilizer in Macro/Micro reservoirs
+—• On/Off status of all 8 power outlets
