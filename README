@@ -1,0 +1,37 @@
+This is taken from the head of the project
+
+// iAqua Aquarium Controller w/ iPhone-like Interface
+// Written by Dan Cunningham, aka AnotherHobby @ plantedtank.net
+// Much code was swiped, modified, and integrated or otherwise inspired from other public works
+// All code is public domain, feel free to use, abuse, edit, and share
+// Written for Arduino Mega 2560
+
+// CURRENT VERSION 1.0.4
+// - the smart startup routine has been reworked and fixed by robsworld78 at The Planted Tank forums!
+// - added a first run routine that will zero out all EEPROM data that is needed by iAqua
+// - see the warning immediately below:
+// - ////////////////////////////////////////////////////////////////////////////////////////////
+// - // WARNING!! IF YOU HAVE CONFIGURED iAqua BEFORE v 1.0.4 AND DO NOT WANT TO LOOSE YOUR DATA
+// - // YOU MUST COMMENT OUT THE FISRT LINE OF THE startup() ROUTINE THAT CALLS firstRunSetup().
+// - // IF YOU DO NOT, IT WILL ZERO ALL OF YOUR SETTINGS!!!!
+// - /////////////////////////////////////////////////////////////////////////////////////////////
+//
+// VERSION 1.0.3
+// - fixed smartstartup routine bugs
+// - fixed dosing display when resevoir goes negative due to forgettig to hit fill
+// - added robsworld78 at The Planted Tank's PWM smart startup lighting code
+// - fixed issue when temp turned red, and then turned feeding time red
+//
+// VERSION:  1.0.2
+// - more accurate math for how doses were calcualted on home screen
+// - updated power schedules to update home screen immediately
+// - day name was off using new RTC and Time library
+//
+// VERSION:  1.0.1
+// - created smart startup routine
+// - fixed math bug with dosing pump speed saving to eeprom
+// - changed PWM pins for dosing pumps to make room for RGBW PWM pins
+// - changed from previous RTC library to RTClib.h
+//
+// VERSION:  1.0
+// - initial version
