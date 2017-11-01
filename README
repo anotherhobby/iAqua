@@ -1,10 +1,14 @@
-This is the code and image files for an arduino based aquarium controller for a freshwater planted tank.
+Only stored here for archive purposes, this the last version of my iAqua code, along with all of the image files for my arduino based aquarium controller for a freshwater planted tank. 
 
-The project is covered in depth on this forum thread:
+This project was abandoned by me when I moved on from the hobby, but it lives on in the thread below:
 
 http://www.plantedtank.net/forums/20-diy/677265-iaqua-my-touch-interface-aquarium-controller-arduino.html
 
-Here are the key featuers:
+Pictures of the final controller fully assembled in its case:
+
+http://www.plantedtank.net/forums/6567266-post186.html
+
+Key featuers:
 
 • Colorful iPhone inspired touch screen interface
 • Nearly all settings are accessed and changed in the GUI, not in code
